@@ -1,0 +1,1 @@
+from BERT_model import predict
