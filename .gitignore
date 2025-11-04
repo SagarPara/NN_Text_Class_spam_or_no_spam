@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+
+# Ignore large model files
+*.pt
+*.safetensors
+
+
+
 # Distribution / packaging
 .Python
 build/

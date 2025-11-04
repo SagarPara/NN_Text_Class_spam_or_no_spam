@@ -3,7 +3,7 @@ from transformers import BertTokenizerFast, AutoModel
 import torch.nn as nn
 import numpy as np
 
-print("Defining BERT_Arch function")
+#print("Defining BERT_Arch function")
 
 # Custom model class (must be redefined exactly as before)
 class BERT_Arch(nn.Module):
@@ -26,7 +26,7 @@ class BERT_Arch(nn.Module):
         x = self.softmax(x)
         return x
 
-print("Defining tokenizer function")
+#print("Defining tokenizer function")
 
 try:
     # Load tokenizer
@@ -39,13 +39,13 @@ try:
     model = BERT_Arch(bert)
     model.load_state_dict(torch.load("sentiment_model.pt", map_location=torch.device('cpu')))
     model.eval()
-    print("Model and Tokenizer loade successfully")
+ #   print("Model and Tokenizer loade successfully")
 
 except Exception as e:
-    print(f"Error loading Model or Tokenizer: {e}")
+ #   print(f"Error loading Model or Tokenizer: {e}")
     raise
 
-print("Successfully load predict function")
+#print("Successfully load predict function")
 
 
 # Prediction function
@@ -72,5 +72,5 @@ if __name__ == "__main__":
     labels, confidences = predict(texts)
 
     for text, label, prob in zip(texts, labels, confidences):
-        sentiment = "Positive" if label == 1 else "Negative"
+        sentiment = "Spam" if label == 1 else "Non-Spam"
         print(f"\nText: {text}\nSentiment: {sentiment} (Confidence: {prob[label]:.2f})")
