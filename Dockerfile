@@ -11,4 +11,5 @@ RUN pip install -r requirements.txt
 #copy all files (including large files)
 COPY ./ ./
 
-CMD ["python3", "-m", "flask", "--app", "predict_if_spam", "run", "--host=0.0.0.0"]
+CMD ["flask", "--app", "predict_if_spam.py", "run", "--host=0.0.0.0", "--port=5001"]
+
